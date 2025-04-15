@@ -27,7 +27,7 @@ function Projects() {
     },
     {
       name: "smar-ch",
-      img: "/51h+NE27aYL._AC_UF1000,1000_QL80_ (1).jpg",
+      img: "/smarch.jpg",
       linkGit: "https://github.com/Rabab17/FrontsEndSmarch",
       linkWeb: "https://smar-ch.com/",
     },
