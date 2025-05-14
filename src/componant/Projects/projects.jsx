@@ -29,7 +29,7 @@ function Projects() {
       name: "smar-ch",
       img: "/smarch.jpg",
       linkGit: "https://github.com/Rabab17/FrontsEndSmarch",
-      linkWeb: "https://smar-ch.com/",
+      linkWeb: "https://fronts-end-smarch.vercel.app/",
     },
     {
       name: "Udemy Backend",
