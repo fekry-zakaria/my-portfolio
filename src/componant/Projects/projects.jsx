@@ -37,8 +37,14 @@ function Projects() {
       linkGit: "https://github.com/mahmoud358/udemy-backend",
       linkWeb: "https://github.com/mahmoud358/udemy-backend",
     },
+    {
+      name: "My Movies",
+      img: "https://www.boundless.co.uk/-/media/PartnerAssetsSet/The%20Cinema%20Society/240723/People%20enjoying%20a%20film%20at%20the%20cinema.jpg?mw=640&hash=A155971BB259F637E4B1C8B1DA25A601",
+      linkGit: "https://github.com/fekry-zakaria/movie-app",
+      linkWeb: "https://movie-app-two-swart-89.vercel.app/",
+    },
   ];
-
+  // https://www.boundless.co.uk/-/media/PartnerAssetsSet/The%20Cinema%20Society/240723/People%20enjoying%20a%20film%20at%20the%20cinema.jpg?mw=640&hash=A155971BB259F637E4B1C8B1DA25A601
   return (
     <>
       <div className="pt-30 text-center">
