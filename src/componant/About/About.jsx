@@ -64,7 +64,7 @@ const techs = [
     <div className="md:w-1/3 p-5 flex justify-center items-center">
       <div>
       <div>
-        <img className="rounded-full " src='https://png.pngtree.com/png-vector/20230728/ourlarge/pngtree-coder-clipart-boy-working-with-computer-game-on-the-desk-vector-png-image_6804917.png' alt="Fekry" />
+        <img className="rounded-full " src='https://png.pngtree.com/png-vector/20230728/ourlarge/pngtree-coder-clipart-boy-working-with-computer-game-on-the-desk-vector-png-image_6804917.png' alt="Fekry"   loading="lazy" />
       </div>
       </div>
     </div>
@@ -85,6 +85,7 @@ const techs = [
         <img
           src={tech.icon}
           alt={tech.name}
+            loading="lazy"
           className="w-16 h-16 transition-transform duration-300 transform group-hover:scale-110"
         />
         <p className="mt-2 text-sm text-center text-[#2b2928] dark:text-white font-semibold">

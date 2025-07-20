@@ -6,6 +6,8 @@ import {
   AiOutlineUser,
 } from "react-icons/ai";
 import { MdOutlineConnectWithoutContact } from "react-icons/md";
+import { TfiClose } from "react-icons/tfi";
+
 
 
 import { FiMenu, FiX } from "react-icons/fi";
@@ -34,7 +36,17 @@ export default function  Tast()  {
       window.removeEventListener("scroll", scrollHandler);
     };
   }, []);
-
+  useEffect(() => {
+    if (navOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  
+    return () => {
+      document.body.style.overflow = "auto"; // احتياطي لما يتغير
+    };
+  }, [navOpen]);
   return (
     <>
     <nav
@@ -125,40 +137,51 @@ export default function  Tast()  {
         
       </div>
 
-      {/* Mobile Menu */}
       <div
-  className={`absolute top-0 left-0 w-full bg-gray-900 flex flex-col items-center py-10 text-white transform transition-all duration-500 ease-in-out md:hidden
-    ${navOpen ? "translate-y-0 opacity-100 scale-100" : "-translate-y-full opacity-0 scale-95 pointer-events-none"}
-  `}
+  className={`fixed inset-0 z-50 bg-white h-screen overflow-y-auto flex flex-col items-center pt-20 transition-all duration-500 ease-in-out md:hidden 
+  ${navOpen ? "translate-y-0 opacity-100 scale-100" : "-translate-y-full opacity-0 scale-95 pointer-events-none"}`}
 >
+  {/* Close Button */}
+  <button
+    className="absolute top-9 right-6 text-3xl text-gray-800 hover:text-gray-500 transition"
+    onClick={() => setNavOpen(false)}
+    type="button"
+  >
+    <TfiClose />
 
+  </button>
 
-  <button className="absolute top-4 right-4 border-2 border-purple-600 group hover:border-purple-600 w-12 h-12 duration-500 overflow-hidden" 
-  onClick={() => setNavOpen(false)}
-  type="button">
-      <p className="font-Manrope text-4xl  text-white duration-500  z-10 group-hover:scale-0">
-        ×
-      </p>
-      <span className="absolute w-full h-full bg-purple-600 rotate-45 group-hover:top-9 duration-500 top-12 left-0" />
-      <span className="absolute w-full h-full bg-purple-600 rotate-45 top-0 group-hover:left-9 duration-500 left-12" />
-      <span className="absolute w-full h-full bg-purple-600 rotate-45 top-0 group-hover:right-9 duration-500 right-12" />
-      <span className="absolute w-full h-full bg-purple-600 rotate-45 group-hover:bottom-9 duration-500 bottom-12 right-0" />
-    </button>
+  {/* Logo */}
+  <div className="absolute top-6 left-6 flex items-center space-x-2">
+    <img src="/logoWeb.jpg" width={60} height={60} alt="" />
+    
+  </div>
 
-  <Link to="/" onClick={() => setNavOpen(false)} className="text-3xl flex items-center space-x-2 hover:text-gray-400">
-    <AiOutlineHome /> <span >Home</span>
-  </Link>
-  <Link to="About" onClick={() => setNavOpen(false)} className="text-3xl flex items-center space-x-2 hover:text-gray-400">
-    <AiOutlineUser /> <span>About</span>
-  </Link>
-  <Link to="Projects" onClick={() => setNavOpen(false)} className="text-3xl flex items-center space-x-2 hover:text-gray-400">
-    <AiOutlineFundProjectionScreen /> <span>Projects</span>
-  </Link>
- 
-  <Link to="contact" onClick={() => setNavOpen(false)} className="text-3xl flex items-center space-x-2 hover:text-gray-400">
-    <MdOutlineConnectWithoutContact /> <span>Contact</span>
-  </Link>
+  {/* Links */}
+  <div className="flex flex-col items-center space-y-6 text-gray-400 text-2xl mt-10 font-mono">
+    <Link to="/" onClick={() => setNavOpen(false)} className="hover:text-gray-700">Home</Link>
+    <Link to="/about" onClick={() => setNavOpen(false)} className="hover:text-gray-600">About</Link>
+    <Link to="/projects" onClick={() => setNavOpen(false)} className="hover:text-gray-600">Projects</Link>
+    <Link to="/contact" onClick={() => setNavOpen(false)} className="hover:text-gray-600">Contact</Link>
+  </div>
+
+  {/* Download CV Button */}
+  <a
+  href="/Fekry Zakaria Fekry.pdf"
+  download
+  className="mt-6 cursor-pointer font-semibold overflow-hidden relative z-100 border border-[#2b2928] group px-8 py-2 inline-block"
+>
+  <span className="relative z-10 text-[#2b2928]  group-hover:text-white text-xl duration-500">
+    Download CV
+  </span>
+
+  {/* الشرائح اللي بتدخل من الجوانب */}
+  <span className="absolute w-full h-full bg-[#2b2928] -left-32 top-0 -rotate-45 group-hover:rotate-0 group-hover:left-0 duration-500" />
+  <span className="absolute w-full h-full bg-[#2b2928] -right-32 top-0 -rotate-45 group-hover:rotate-0 group-hover:right-0 duration-500" />
+</a>
+
 </div>
+
     </nav>
     </>
 
