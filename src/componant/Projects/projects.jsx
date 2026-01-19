@@ -45,7 +45,7 @@ function Projects() {
     },
     {
       name: "Rock Power",
-      img: "../../../public/logo.png",
+      img: "/logo.png",
       linkGit: "https://github.com/fekry-zakaria/Rock-Power-Web",
       linkWeb: "https://rock-power-web.vercel.app/",
     },
