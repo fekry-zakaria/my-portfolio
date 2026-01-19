@@ -43,6 +43,12 @@ function Projects() {
       linkGit: "https://github.com/fekry-zakaria/movie-app",
       linkWeb: "https://movie-app-two-swart-89.vercel.app/",
     },
+    {
+      name: "Rock Power",
+      img: "../../../public/logo.png",
+      linkGit: "https://github.com/fekry-zakaria/Rock-Power-Web",
+      linkWeb: "https://rock-power-web.vercel.app/",
+    },
   ];
   
   return (
@@ -60,40 +66,85 @@ function Projects() {
       <div className="container mx-auto">
         <div className="pt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
           {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              className="relative group w-100 overflow-hidden"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2, ease: "easeOut" }}
-            >
-              <img
-                loading="lazy"
-                src={project.img}
-                alt={project.name}
-                className="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"
-              />
+           <motion.div
+  key={index}
+  initial={{ opacity: 0, y: 60 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.7, ease: "easeOut", delay: index * 0.15 }}
+  className="relative group w-full max-w-sm"
+>
+  {/* Glow Layer */}
+  <div
+    className={`absolute -inset-0.5 rounded-3xl opacity-0 group-hover:opacity-100
+               transition duration-700 blur-xl
+               bg-gradient-to-r ${themeName === "dark" ?"  from-[#ffff] via-transparent to-[#ffff]" :" from-black via-transparent to-black"} `}
+  />
 
-              <div className="absolute inset-0 bg-black bg-opacity-80 opacity-0 group-hover:opacity-80 transition duration-300 flex items-center justify-center gap-4">
-                <h1 className="text-white text-2xl font-bold">{project.name}</h1>
-                <a
-                  href={project.linkGit}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white text-2xl hover:text-gray-300 transition"
-                >
-                  <FaGithub />
-                </a>
-                <a
-                  href={project.linkWeb}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white text-2xl hover:text-gray-300 transition"
-                >
-                  <FaExternalLinkAlt />
-                </a>
-              </div>
-            </motion.div>
+  {/* Card */}
+  <div
+    className="relative rounded-3xl overflow-hidden
+               bg-[#2b2928]"
+  >
+    {/* Image */}
+    <div className="relative h-60 overflow-hidden">
+      <img
+        src={project.img}
+        alt={project.name}
+        className="w-full h-full object-cover
+                   transition-transform duration-[1200ms]
+                   group-hover:scale-110 group-hover:-rotate-1"
+      />
+
+      {/* Light Sweep */}
+      <div
+        className="absolute inset-0 pointer-events-none
+                   opacity-0 group-hover:opacity-100
+                   transition duration-700
+                   bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.12),transparent)]
+                   translate-x-[-100%] group-hover:translate-x-[100%]"
+      />
+    </div>
+
+    {/* Content */}
+    <div className="p-6 space-y-4">
+      <h3
+        className="text-xl font-semibold text-white tracking-wide
+                   transition-all duration-500
+                   group-hover:translate-x-1"
+      >
+        {project.name}
+      </h3>
+
+      <div className="flex gap-4">
+        <a
+          href={project.linkGit}
+          target="_blank"
+          className="flex items-center gap-2 px-4 py-2 rounded-full
+                     text-sm font-medium text-white
+                     border border-white/15
+                     hover:bg-[#bbfe32] hover:text-black
+                     transition"
+        >
+          <FaGithub /> Code
+        </a>
+
+        <a
+          href={project.linkWeb}
+          target="_blank"
+          className="flex items-center gap-2 px-4 py-2 rounded-full
+                     text-sm font-medium text-white
+                     border border-white/15
+                     hover:bg-[#bbfe32] hover:text-black
+                     transition"
+        >
+          <FaExternalLinkAlt /> Live
+        </a>
+      </div>
+    </div>
+  </div>
+</motion.div>
+
           ))}
         </div>
       </div>

@@ -142,7 +142,7 @@ function Home() {
   transition={{ duration: 0.8, ease: "easeInOut" }}
   viewport={{ once: false }}> 
     <div className="md:w-2/3  p-6 ">
-    <img loading="lazy" src="/fekry.jpg" alt="fekry zakaria fekry" className="rounded-full   " />
+    <img loading="lazy" src="/fekry01.jpeg" alt="fekry zakaria fekry" className="rounded-full   " />
     </div>
     </motion.div>
 
